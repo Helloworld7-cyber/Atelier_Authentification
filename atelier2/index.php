@@ -16,11 +16,30 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $username = $_POST['username'];
     $password = $_POST['password'];
 
-    // Ligne 26 : Vérification simple du username et de son password.
+    // Le nouveau bloc commence ici pour gérer les Exercices 1, 2, et 3
+    
+    // 1. BLOC ADMIN (Exercices 1 & 2)
     if ($username === 'admin' && $password === 'secret') {
-        setcookie('authToken', '12345', time() + 3600, '/', '', false, true); // Le Cookie est initialisé et valable pendant 1 heure (3600 secondes) 
-        header('Location: page_admin.php'); // L'utilisateur est dirigé vers la page home.php
+        
+        $token_value = bin2hex(random_bytes(16)); // Exercice 2 : Jeton unique
+        $duree_validite = time() + 60;          // Exercice 1 : 1 minute
+        
+        setcookie('authToken', $token_value, $duree_validite, '/', '', false, true); 
+        
+        header('Location: page_admin.php'); 
         exit();
+        
+    // 2. NOUVEAU BLOC USER (Exercice 3 : 'user' / 'utilisateur')
+    } elseif ($username === 'user' && $password === 'utilisateur') {
+        
+        $token_value = bin2hex(random_bytes(16)); // Exercice 2 : Jeton unique
+        $duree_validite = time() + 60;          // Exercice 1 : 1 minute
+        
+        setcookie('authToken', $token_value, $duree_validite, '/', '', false, true); 
+        
+        header('Location: page_user.php'); // Redirection vers la nouvelle page page_user.php
+        exit();
+        
     } else {
         $error = "Nom d'utilisateur ou mot de passe incorrect.";
     }
