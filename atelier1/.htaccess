@@ -1,0 +1,5 @@
+AuthName "Acces protege par Basic Auth"
+AuthType Basic
+# Le chemin vers le fichier .htpasswd (relativement à la racine du site)
+AuthUserFile /home/{matteob}/www/.htpasswd
+Require valid-user
