@@ -1,0 +1,4 @@
+AuthName "Acces Restreint"
+AuthType Basic
+AuthUserFile /home/matteob/www/.htpasswd
+Require valid-user
