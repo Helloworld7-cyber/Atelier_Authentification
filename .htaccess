@@ -1,4 +1,4 @@
-AuthName "Acces protege par Basic Auth"
+AuthName "Acces Restreint"
 AuthType Basic
-AuthUserFile /home/matteob/www/atelier1/.htpasswd 
+AuthUserFile /home/matteob/www/atelier1/.htpasswd
 Require valid-user
